@@ -34,10 +34,10 @@ services:
     links:
       - db:database
     environment:
-        ETHEREUM_JSONRPC_HTTP_URL: http://208.115.109.202:8546/
-        ETHEREUM_JSONRPC_TRACE_URL: http://208.115.109.202:8546/
-        ETHEREUM_JSONRPC_WS_URL: ws://host.docker.internal:8545/
-        CHAIN_ID: '15323'
+        ETHEREUM_JSONRPC_HTTP_URL: http://208.115.109.202:15002/
+        ETHEREUM_JSONRPC_TRACE_URL: http://208.115.109.202:15002/
+        ETHEREUM_JSONRPC_WS_URL: ws://208.115.109.202:15002/
+        CHAIN_ID: '15324'
 
   nft_media_handler:
     depends_on:
