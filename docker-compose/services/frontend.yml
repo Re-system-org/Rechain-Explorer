@@ -7,5 +7,7 @@ services:
     platform: linux/amd64
     restart: always
     container_name: 'frontend'
+    extra_hosts:
+      - "208.115.109.202:host-gateway"
     env_file:
       -  ../envs/common-frontend.env

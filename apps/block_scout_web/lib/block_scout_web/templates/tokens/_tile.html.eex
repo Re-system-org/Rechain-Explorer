@@ -14,7 +14,8 @@
         render BlockScoutWeb.TokensView,
         "_token_icon.html",
         chain_id: chain_id_for_token_icon,
-        address: token_hash_for_token_icon
+        address: token_hash_for_token_icon,
+        icon_url: @token.icon_url
       %>
     <% end %>
   </td>

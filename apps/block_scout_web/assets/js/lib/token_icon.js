@@ -1,4 +1,7 @@
-function getTokenIconUrl (chainID, addressHash) {
+function getTokenIconUrl (chainID, addressHash, dbIconUrl) {
+  if (dbIconUrl && dbIconUrl.trim() !== '') {
+    return dbIconUrl
+  }
   let chainName = null
   switch (chainID) {
     case '1':
@@ -21,9 +24,9 @@ function getTokenIconUrl (chainID, addressHash) {
   }
 }
 
-function appendTokenIcon ($tokenIconContainer, chainID, addressHash, displayTokenIcons, size) {
+function appendTokenIcon ($tokenIconContainer, chainID, addressHash, displayTokenIcons, size, dbIconUrl) {
   const iconSize = size || 20
-  const tokenIconURL = getTokenIconUrl(chainID.toString(), addressHash)
+  const tokenIconURL = getTokenIconUrl(chainID.toString(), addressHash, dbIconUrl)
   if (displayTokenIcons) {
     checkLink(tokenIconURL)
       .then(checkTokenIconLink => {

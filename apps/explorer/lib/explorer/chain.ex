@@ -3663,30 +3663,34 @@ defmodule Explorer.Chain do
     end
   end
 
-  @spec get_token_icon_url_by(String.t(), String.t()) :: String.t() | nil
-  def get_token_icon_url_by(chain_id, address_hash) do
-    chain_name =
-      case chain_id do
-        "1" ->
-          "ethereum"
-
-        "99" ->
-          "poa"
-
-        "100" ->
-          "xdai"
-
-        _ ->
-          nil
-      end
-
-    if chain_name do
-      try_url =
-        "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/#{chain_name}/assets/#{address_hash}/logo.png"
-
-      try_url
+  @spec get_token_icon_url_by(String.t(), String.t(), String.t() | nil) :: String.t() | nil
+  def get_token_icon_url_by(chain_id, address_hash, db_icon_url \\ nil) do
+    if db_icon_url && db_icon_url != "" do
+      db_icon_url
     else
-      nil
+      chain_name =
+        case chain_id do
+          "1" ->
+            "ethereum"
+
+          "99" ->
+            "poa"
+
+          "100" ->
+            "xdai"
+
+          _ ->
+            nil
+        end
+
+      if chain_name do
+        try_url =
+          "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/#{chain_name}/assets/#{address_hash}/logo.png"
+
+        try_url
+      else
+        nil
+      end
     end
   end
 

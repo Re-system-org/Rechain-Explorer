@@ -29,7 +29,8 @@
               "_token_icon.html",
               chain_id: chain_id_for_token_icon,
               address: Address.checksum(address_hash),
-              additional_classes: ["token-wallet-icon"]
+              additional_classes: ["token-wallet-icon"],
+              icon_url: token_balance.token.icon_url
             %>
           <% end %>
           <p class="mb-0 col-md-6 pl-0 pr-0 el-1 flex-grow-2 <%= if !Application.get_env(:block_scout_web, :display_token_icons), do: "ml-5px" %>"><%= token_name(token_balance.token) %>

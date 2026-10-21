@@ -9,7 +9,8 @@
         render BlockScoutWeb.TokensView,
         "_token_icon.html",
         chain_id: chain_id_for_token_icon,
-        address: Address.checksum(address_hash)
+        address: Address.checksum(address_hash),
+        icon_url: @token.icon_url
       %>
     <% end %>
   </td>

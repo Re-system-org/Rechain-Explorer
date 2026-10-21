@@ -6,6 +6,7 @@ if ($('[data-page="token-details"]').length) {
   const chainID = $tokenIconContainer.data('chain-id')
   const addressHash = $tokenIconContainer.data('address-hash')
   const displayTokenIcons = $tokenIconContainer.data('display-token-icons')
+  const iconUrl = $tokenIconContainer.data('icon-url')
 
-  appendTokenIcon($tokenIconContainer, chainID, addressHash, displayTokenIcons)
+  appendTokenIcon($tokenIconContainer, chainID, addressHash, displayTokenIcons, null, iconUrl)
 }
